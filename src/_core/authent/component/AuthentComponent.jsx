@@ -11,8 +11,8 @@ const AuthentComponent = () => {
     <div className="authent-component">
       <div className="panel is-primary">
         <p className="panel-heading">Connexion</p>
-        <div class="panel-block" style={{ justifyContent: "center" }}>
-          <div class="form">
+        <div className="panel-block" style={{ justifyContent: "center" }}>
+          <div className="form">
             <div className="field">
               <label className="label" htmlFor="login">
                 Login
@@ -27,7 +27,7 @@ const AuthentComponent = () => {
               </div>
             </div>
             <div className="field">
-              <label lassName="label" htmlFor="pass">
+              <label className="label" htmlFor="pass">
                 Mot de passe
               </label>
               <div className="control">

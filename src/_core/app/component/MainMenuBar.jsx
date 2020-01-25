@@ -1,5 +1,5 @@
 import React from "react";
-import useAuthent from "../../authent/hook/useAuthent";
+import { useAuthent } from "../../authent/service/AuthentService";
 import "./MainMenuBar.css";
 
 const MainMenuBar = () => {
@@ -11,7 +11,7 @@ const MainMenuBar = () => {
         <div className="user">
           <span className="icon">
             <i className="fas fa-user"></i>
-          </span>{" "}
+          </span>
           {user.login}
         </div>
       );

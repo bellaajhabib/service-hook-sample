@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import EventEmitter from "../../../_common/service/EventEmitter";
 
 class AuthentServiceImpl {
@@ -28,7 +29,25 @@ class AuthentServiceImpl {
     return this._emitter.addListener(listener);
   };
 }
-
 const AuthentService = new AuthentServiceImpl();
+
+//--------------------------------
+// création du hook pour ce service
+// (permet de rafraichir les composant si une donnée importante change)
+//--------------------------------
+export const useAuthent = () => {
+  const [authent, setAuthent] = useState({
+    user: AuthentService.getUser(),
+    isConnected: AuthentService.isConnected()
+  });
+
+  useEffect(() => {
+    return AuthentService.onChange(authent => {
+      setAuthent(authent);
+    });
+  }, []);
+
+  return [authent.user, authent.isConnected, AuthentService.disconnect];
+};
 
 export default AuthentService;
