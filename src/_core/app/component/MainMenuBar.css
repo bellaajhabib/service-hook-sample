@@ -1,0 +1,9 @@
+.main-menu-bar {
+    display:flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.main-menu-bar-connect-btn {
+    margin-left:20px
+}
