@@ -3,7 +3,13 @@ export default class EventEmitter {
   addListener = listener => {
     this.listeners.push(listener);
     // return the removeListener function
-    return () => this.listeners.splice(this.listeners.indexOf(listener), 1); // warning must be called to avoid memory leak
+  
+    return () => {
+        const idx = this.listeners.indexOf(listener);
+        if (idx > -1) {
+            this.listeners.splice(idx, 1); // warning must be called to avoid memory leak
+        }
+    }
   };
   trigger = message => {
     for (const k in this.listeners) {
